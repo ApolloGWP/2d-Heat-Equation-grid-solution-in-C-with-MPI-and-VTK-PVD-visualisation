@@ -6,6 +6,9 @@
       "AbsoluteMoniker": "D:0:0:{42282469-8CDE-3119-A9F9-B18DBB23F0A8}|heat_equation.vcxproj|C:\\Users\\Admin\\source\\repos\\2dHeatEquationV3\\2dHeatEquationV3.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{42282469-8CDE-3119-A9F9-B18DBB23F0A8}|heat_equation.vcxproj|C:\\PROGRAM FILES\\VTK\\INCLUDE\\VTK-9.3\\VTKMATRIXUTILITIES.H||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{42282469-8CDE-3119-A9F9-B18DBB23F0A8}|heat_equation.vcxproj|C:\\Users\\Admin\\source\\repos\\2dHeatEquationV3\\CMakeLists.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
     }
   ],
@@ -16,11 +19,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "vtkMatrixUtilities.h",
+              "DocumentMoniker": "C:\\Program Files\\VTK\\include\\vtk-9.3\\vtkMatrixUtilities.h",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\Program Files\\VTK\\include\\vtk-9.3\\vtkMatrixUtilities.h",
+              "ToolTip": "C:\\Program Files\\VTK\\include\\vtk-9.3\\vtkMatrixUtilities.h",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\..\\Program Files\\VTK\\include\\vtk-9.3\\vtkMatrixUtilities.h",
+              "ViewState": "AgIAAHoAAAAAAAAAAAArwIsAAABdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-08-29T11:25:53.636Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -30,14 +46,14 @@
               "RelativeDocumentMoniker": "..\\2dHeatEquationV3.cpp",
               "ToolTip": "C:\\Users\\Admin\\source\\repos\\2dHeatEquationV3\\2dHeatEquationV3.cpp",
               "RelativeToolTip": "..\\2dHeatEquationV3.cpp",
-              "ViewState": "AgIAAOgAAAAAAAAAAAAkwPgAAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAAPMAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-08-28T18:53:56.395Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "CMakeLists.txt",
               "DocumentMoniker": "C:\\Users\\Admin\\source\\repos\\2dHeatEquationV3\\CMakeLists.txt",
               "RelativeDocumentMoniker": "..\\CMakeLists.txt",

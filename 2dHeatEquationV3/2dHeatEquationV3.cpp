@@ -30,7 +30,7 @@ int main(int argc, char** argv) {
     const double tf = 10.0;    // final time
     const int nt = static_cast<int>(tf / dt); // number of time steps
 
-    // Boundary conditions (Dirichlet)
+    // Boundary conditions
     const double T0 = 1.0;     // internal field
     const double T1 = 0.0;     // bottom boundary
     const double T2 = 0.0;     // top boundary
@@ -72,7 +72,7 @@ int main(int argc, char** argv) {
     // Full T grid on rank 0
     std::vector<std::vector<double>> full_T;
     if (rank == 0) {
-        full_T = std::vector<std::vector<double>>(nx, std::vector<double>(ny, 0.0)); // Initialize nx x ny
+        full_T = std::vector<std::vector<double>>(nx, std::vector<double>(ny, 0.0)); 
     }
 
     // VTK setup on rank 0
@@ -115,7 +115,7 @@ int main(int argc, char** argv) {
         displs[p] = (p == 0 ? 0 : displs[p - 1] + counts[p - 1]);
     }
 
-    // Rank 0 sets initial condition globally
+    // Rank 0 sets initial conditions
     if (rank == 0) {
         for (int i = 0; i < nx; ++i) {
             for (int j = 0; j < ny; ++j) {
@@ -157,10 +157,8 @@ int main(int argc, char** argv) {
     }
     double comm_start = MPI_Wtime();
     MPI_Bcast(full_slice.data(), nx * ny, MPI_DOUBLE, 0, MPI_COMM_WORLD);
-    comm_time += MPI_Wtime() - comm_start;
 
     // Scatter to local slices
-    comm_start = MPI_Wtime();
     MPI_Scatterv(full_slice.data(), counts.data(), displs.data(), MPI_DOUBLE,
         local_T_slice.data(), nx * local_ny, MPI_DOUBLE, 0, MPI_COMM_WORLD);
     comm_time += MPI_Wtime() - comm_start;
@@ -179,7 +177,7 @@ int main(int argc, char** argv) {
         double compute_start = MPI_Wtime();
         for (int i = 1; i < nx - 1; ++i) {
             for (int local_j = 0; local_j < local_ny; ++local_j) {
-                if (local_start_y + local_j > 0 && local_start_y + local_j < ny - 1) { // Skip boundary rows
+                if (local_start_y + local_j > 0 && local_start_y + local_j < ny - 1) {
                     double d2dx2 = (local_slice_prev[local_j * nx + i + 1] - 2 * local_slice_prev[local_j * nx + i] + local_slice_prev[local_j * nx + i - 1]) / (dx * dx);
                     double d2dy2 = (full_slice[(local_start_y + local_j + 1) * nx + i] - 2 * full_slice[(local_start_y + local_j) * nx + i] + full_slice[(local_start_y + local_j - 1) * nx + i]) / (dy * dy);
                     local_T_slice[local_j * nx + i] = k * dt * (d2dx2 + d2dy2) + local_slice_prev[local_j * nx + i];
@@ -197,11 +195,11 @@ int main(int argc, char** argv) {
             full_slice.data(), counts.data(), displs.data(), MPI_DOUBLE, 0, MPI_COMM_WORLD);
         comm_time += MPI_Wtime() - comm_start;
 
-        // Rank 0 updates full T and applies boundaries
+        // Rank 0 updates full T
         if (rank == 0) {
             for (int j = 0; j < ny; ++j) {
                 for (int i = 0; i < nx; ++i) {
-                    full_T[i][j] = full_slice[j * nx + i]; // Changed from full_T[i][j][t + 1]
+                    full_T[i][j] = full_slice[j * nx + i];
                 }
             }
 
@@ -209,7 +207,7 @@ int main(int argc, char** argv) {
             temperature->Reset();
             for (int j = 0; j < ny; ++j) {
                 for (int i = 0; i < nx; ++i) {
-                    temperature->InsertNextValue(full_T[i][j]); // Changed from full_T[i][j][t + 1]
+                    temperature->InsertNextValue(full_T[i][j]);
                 }
             }
             structuredGrid->GetPointData()->SetScalars(temperature);
@@ -225,7 +223,7 @@ int main(int argc, char** argv) {
         if (rank == 0) {
             for (int j = 0; j < ny; ++j) {
                 for (int i = 0; i < nx; ++i) {
-                    full_slice[j * nx + i] = full_T[i][j]; // Changed from full_T[i][j][t + 1]
+                    full_slice[j * nx + i] = full_T[i][j]; 
                 }
             }
         }
