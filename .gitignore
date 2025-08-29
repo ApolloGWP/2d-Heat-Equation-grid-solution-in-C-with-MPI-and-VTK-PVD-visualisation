@@ -1,4 +1,5 @@
 *.obj
 *.pdb
 *.ipch
+.ilk
 result/
