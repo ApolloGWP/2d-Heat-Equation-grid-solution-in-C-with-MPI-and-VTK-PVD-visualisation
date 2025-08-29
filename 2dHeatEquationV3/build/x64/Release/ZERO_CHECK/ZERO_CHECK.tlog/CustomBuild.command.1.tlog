@@ -1,0 +1,10 @@
+^C:\USERS\ADMIN\SOURCE\REPOS\2DHEATEQUATIONV3\BUILD\CMAKEFILES\32F7CAFBD9E3936F569FDF1D7A04C7E3\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/Admin/source/repos/2dHeatEquationV3 -BC:/Users/Admin/source/repos/2dHeatEquationV3/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/Admin/source/repos/2dHeatEquationV3/build/HeatEquation2D.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

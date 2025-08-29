@@ -1,0 +1,10 @@
+^C:\USERS\ADMIN\SOURCE\REPOS\2DHEATEQUATIONV3\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/Admin/source/repos/2dHeatEquationV3 -BC:/Users/Admin/source/repos/2dHeatEquationV3/build --check-stamp-file C:/Users/Admin/source/repos/2dHeatEquationV3/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

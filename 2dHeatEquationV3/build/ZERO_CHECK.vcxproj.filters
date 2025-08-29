@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Admin\source\repos\2dHeatEquationV3\build\CMakeFiles\32f7cafbd9e3936f569fdf1d7a04c7e3\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{F8C2E399-C847-3D3B-A976-F8EB8D3DB227}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
